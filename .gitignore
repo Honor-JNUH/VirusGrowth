@@ -1,9 +1,7 @@
 # Unity files
 
 Temp/
-Library/ShaderCache/
-Library/metadata/
-Library/*.log
+Library/
 *.db
 
 # Windows image file caches
