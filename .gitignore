@@ -2,6 +2,7 @@
 Assets/
 Temp/
 Library/ShaderCache/
+Library/metadata/
 Library/*.log
 
 # Windows image file caches
