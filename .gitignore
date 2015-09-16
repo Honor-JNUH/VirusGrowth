@@ -1,8 +1,10 @@
 # Unity files
-
 Temp/
 Library/
 *.db
+
+# Meta files
+*.meta
 
 # Windows image file caches
 Thumbs.db
