@@ -1,8 +1,10 @@
 # Unity files
-
 Temp/
 Library/
 *.db
+
+# Meta files
+*.meta
 
 # Windows image file caches
 Thumbs.db
@@ -13,6 +15,10 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
+# C# files
+*.sln
+*.csproj
 
 # Windows Installer files
 *.cab
