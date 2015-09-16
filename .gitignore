@@ -16,6 +16,10 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
+# C# files
+*.sln
+*.csproj
+
 # Windows Installer files
 *.cab
 *.msi
