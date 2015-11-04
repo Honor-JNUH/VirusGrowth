@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-
-
+	public Movement movement;	
+	Vector3 dir;
 
 	void Start () {
 
@@ -12,7 +12,12 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		float sero = Input.GetAxis ("Vertical");
 		float garo = Input.GetAxis ("Horizontal");
-		Vector3 dir = new Vector3 (garo, sero, 0);
 
+		if(sero != 0 || garo != 0) {
+			dir = new Vector3 (garo, sero, 0);
+			movement.Move (dir);
+
+			/* 문제: 방향키 두 개를 누르고 있다가 하나를 먼저 떼면 수직 방향으로 바뀌어버림*/
+		}
 	}
 }
