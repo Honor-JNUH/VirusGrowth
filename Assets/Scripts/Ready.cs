@@ -10,18 +10,18 @@ public class Ready : MonoBehaviour
 
     public Button PlayButton;
 
-
     public void HandleOnStateChange() {
-        Debug.Log("Let the game begin!");
-        Application.LoadLevel(LevelName[GM.Level]);
     }
 
     public void BeginPlaying() {
+        Debug.Log("Let the game begin! Level: " + GM.Level);
+
         GM.SetGameState(GameState.PLAY);
+        Application.LoadLevel(LevelName[GM.Level]);
     }
 
     void Awake() {
-        GM = GameManager.Instance;
+        GM = GameManager.instance;
         GM.OnStateChange += HandleOnStateChange;
     }
 
