@@ -1,27 +1,27 @@
-using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine;
 
 public enum GameState { SPLASH, READY, PLAY, PLAY_PAUSE, END, CONFIG }
 
 public delegate void OnStateChangeHandler(); 
 
-public class GameManager : UnityEngine.Object {
+public class GameManager : MonoBehaviour {
     protected GameManager() { }
     public static GameManager instance = null;
-    public event OnStateChangeHandler OnStateChange;
-    public GameState gameState { get; private set; }
-    
-
-    public static GameManager Instance {
-        get {
-            if (GameManager.instance == null) {
-                DontDestroyOnLoad(GameManager.instance);
-                GameManager.instance = new GameManager();
-            }
-            return GameManager.instance;
+    void Awake()
+    {
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else { 
+            Destroy(this);
         }
     }
+    public event OnStateChangeHandler OnStateChange;
+    public GameState gameState { get; private set; }
+    public int Level { get; private set; }
 
 
     public void SetGameState(GameState state) {
@@ -29,9 +29,16 @@ public class GameManager : UnityEngine.Object {
         OnStateChange();
     }
 
-
     public void OnApplicationQuit() {
         GameManager.instance = null;
+    }
+
+    public void AdvanceLevel() {
+        Level += 1;
+    }
+
+    public void ResetRun() {
+        Level = 1;
     }
 
 }
