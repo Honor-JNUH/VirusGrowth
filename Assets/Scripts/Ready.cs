@@ -7,7 +7,6 @@ public class Ready : MonoBehaviour
 {
     GameManager GM;
     private string[] LevelName = {"", "level_1"};
-
     public Button PlayButton;
 
     public void HandleOnStateChange() {
