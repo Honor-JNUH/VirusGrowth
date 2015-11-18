@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d06b274de8b2d45b44ca0c03994359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CookieButton: {fileID: 0}
+  CookieButton: {fileID: 419929772}
   IDEACOOKIE: {fileID: 120206, guid: cd99816db35461d49943d721b752f8e1, type: 2}
 --- !u!224 &1396140276
 RectTransform:
