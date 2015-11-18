@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     public event OnStateChangeHandler OnStateChange;
     public GameState gameState { get; private set; }
     public int Level { get; private set; }
+	public int Score { get; private set; }
 
 
     public void SetGameState(GameState state) {
@@ -40,6 +41,9 @@ public class GameManager : MonoBehaviour {
     public void ResetRun() {
         Level = 1;
     }
+	public void AddScore(int s) {
+		Score += s;
+	}
 
 }
 

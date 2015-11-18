@@ -14,7 +14,7 @@ public class Intro : MonoBehaviour {
         GM.SetGameState(GameState.READY);
         Debug.Log(GM.gameState);
 
-        Application.LoadLevel("ready");
+        Application.LoadLevel("Ready");
     }
 
     public void Quit() { 
