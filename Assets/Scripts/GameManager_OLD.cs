@@ -1,16 +1,16 @@
 using UnityEngine;
 using System.Collections;
 
-public enum GameState
+public enum GameState_
 {
 	Ready,
 	Play,
 	End
 }
 
-public class GameManager : MonoBehaviour {
+public class GameManager_OLD : MonoBehaviour {
 
-	public GameState Gs;
+	public GameState_ Gs;
 	public float Time;
 	public GameObject FinishGUI;
 	public GUIText Final_Count_Time;
