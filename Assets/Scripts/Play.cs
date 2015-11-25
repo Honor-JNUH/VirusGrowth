@@ -13,7 +13,7 @@ public class Play : MonoBehaviour
 
     public void EndPlaying()
     {
-        Debug.Log("End of Level " + GM.Level);
+        Debug.Log("End of Level " + GM.level);
         GM.SetGameState(GameState.END);
         Application.LoadLevel("end");
     }

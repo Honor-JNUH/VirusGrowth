@@ -1,6 +1,7 @@
 using System.Collections;
 using System;
 using UnityEngine;
+using LitJson;
 
 public enum GameState { SPLASH, READY, PLAY, PLAY_PAUSE, END, CONFIG }
 
@@ -21,9 +22,8 @@ public class GameManager : MonoBehaviour {
     }
     public event OnStateChangeHandler OnStateChange;
     public GameState gameState { get; private set; }
-    public int Level { get; private set; }
-	public int Score { get; private set; }
-
+    public int level { get; private set; }
+	public int score { get; private set; }
 
     public void SetGameState(GameState state) {
         this.gameState = state;
@@ -35,14 +35,14 @@ public class GameManager : MonoBehaviour {
     }
 
     public void AdvanceLevel() {
-        Level += 1;
+        level += 1;
     }
 
     public void ResetRun() {
-        Level = 1;
+        level = 1;
     }
 	public void AddScore(int s) {
-		Score += s;
+		score += s;
 	}
 
 }

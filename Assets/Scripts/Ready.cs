@@ -13,16 +13,12 @@ public class Ready : MonoBehaviour
     }
 
     public void BeginPlaying() {
-        Debug.Log("Let the game begin! Level: " + GM.Level);
+        Debug.Log("Let the game begin! Level: " + GM.level);
 
         GM.SetGameState(GameState.PLAY);
-        Application.LoadLevel(LevelName[GM.Level]);
+        Application.LoadLevel(LevelName[GM.level]);
     }
 
-    void Awake() {
-        GM = GameManager.instance;
-        GM.OnStateChange += HandleOnStateChange;
-    }
 
     void Start() {
         if (PlayButton != null) {
@@ -30,4 +26,9 @@ public class Ready : MonoBehaviour
         }
     }
 
+	void Awake() {
+		GM = GameManager.instance;
+		GM.OnStateChange += HandleOnStateChange;
+	}
+	
 }

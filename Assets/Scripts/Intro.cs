@@ -9,12 +9,11 @@ public class Intro : MonoBehaviour {
 
     public void StartGame() {
         GM.ResetRun();
-        Debug.Log(GM.Level);
 
         GM.SetGameState(GameState.READY);
         Debug.Log(GM.gameState);
 
-        Application.LoadLevel("Ready");
+        Application.LoadLevel("ready");
     }
 
     public void Quit() { 

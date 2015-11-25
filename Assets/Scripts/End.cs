@@ -15,7 +15,6 @@ public class End : MonoBehaviour
     public void GetReady()
     {
         GM.AdvanceLevel();
-        Debug.Log("Going to level " + GM.Level);
         GM.SetGameState(GameState.READY);
         Application.LoadLevel("ready");
     }
@@ -28,7 +27,7 @@ public class End : MonoBehaviour
 
     void Start()
     {
-        ScoreMessage.text = "You made "+GM.Score+" Cookies."; //DEMO ONLY
+        ScoreMessage.text = "You made "+GM.score+" Cookies."; //DEMO ONLY
         if (NextButton != null)
             NextButton.onClick.AddListener(() => { GetReady(); });
     }
