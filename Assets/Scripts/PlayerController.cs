@@ -5,9 +5,6 @@ public class PlayerController : MonoBehaviour {
 	public Movement movement;	
 	Vector3 dir;
 
-	void Start () {
-
-	}
 	// Update is called once per frame
 	void Update () {
 		float sero = Input.GetAxis ("Vertical");
@@ -23,4 +20,6 @@ public class PlayerController : MonoBehaviour {
 			 */
 		}
 	}
+
+
 }
