@@ -6,7 +6,8 @@ public class Bullet : MonoBehaviour {
 	private float Bulletspeed;
 	void Start (){
 		Bulletspeed = 50f;
-		Rigidbody2D.AddForce(transform.up * Bulletspeed);
+		//GetComponent<Rigidbody2D>().(transform.up * Bulletspeed);
+        //weird error
 	}
 
 }

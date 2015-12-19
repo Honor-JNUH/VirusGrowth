@@ -7,8 +7,8 @@ public class FireBullet : MonoBehaviour {
 
 	public void Attack (){
 		GameObject currentBullet;
-		currentBullet = Instantiate (Bullet, player.transform.position, Quaternion.identity);
-		transform.rotation = Quaternion.identity;
+		//currentBullet = Instantiate (Bullet, player.transform.position, Quaternion.identity);
+		//transform.rotation = Quaternion.identity;
 	}
 	
 	void Start () {
