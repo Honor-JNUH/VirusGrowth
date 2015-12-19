@@ -3,7 +3,6 @@ using System.Collections;
 
 public class EntityBehaviour : MonoBehaviour {
 
-    public Movement movement;
     public float defaultSpeed;
 
     float maxSpeed;

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	public Movement movement;
     private Vector3 dir;
 
     void Update () {
