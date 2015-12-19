@@ -9,10 +9,13 @@ public class PlayerController : MonoBehaviour {
 		float sero = Input.GetAxis ("Vertical");
 		float garo = Input.GetAxis ("Horizontal");
 
+        if (garo!= 0)
+            Debug.Log(garo);
+
 		if(sero != 0 || garo != 0) {
-            dir = new Vector3 (garo, sero, 0);
-			//Move (dir);
-		}
+            dir = new Vector3(garo, sero, 0);
+            
+        }
 	}
 
 

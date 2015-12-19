@@ -5,8 +5,8 @@ public class EntityBehaviour : MonoBehaviour {
 
     public float defaultSpeed;
 
-    float maxSpeed;
-    float speed;
+    protected float maxSpeed;
+    protected float speed;
 
     void Start () {
         maxSpeed = defaultSpeed;
@@ -28,17 +28,4 @@ public class EntityBehaviour : MonoBehaviour {
         Move(target - transform.position);
     }
 
-    public void Accelerate(float maxTime = 1)
-    {
-        if (speed < maxSpeed)
-            speed += (2 * maxSpeed / maxTime) * Time.deltaTime;
-    }
-
-    public void Deccelerate(float maxTime = 1)
-    {
-        if (speed > 0)
-            speed -= (2 * maxSpeed / maxTime) * Time.deltaTime;
-        else if (speed < 0)
-            speed = 0;
-    }
 }
