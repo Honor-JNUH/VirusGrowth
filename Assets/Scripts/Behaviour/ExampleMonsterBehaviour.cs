@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class ExampleMonsterBehaviour : MonoBehaviour {
+public class ExampleMonsterBehaviour : EntityBehaviour {
 
-    public Movement movement;
+    public GameObject player;
 
-	// Update is called once per frame
 	void Update () {
-	    
+        Follow(player.transform.position);
 	}
 }
