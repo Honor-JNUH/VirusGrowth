@@ -17,7 +17,7 @@ public class DataManager : MonoBehaviour {
 		if (www.error == null)
 		{
 			//Sucessfully loaded the JSON string
-			Debug.Log("Loaded following JSON string" + www.data);
+			Debug.Log("Loaded following JSON string" + www.text);
 			
 			//Process books found in JSON file
 			//ProcessBooks(www.data);
