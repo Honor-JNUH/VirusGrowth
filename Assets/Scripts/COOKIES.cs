@@ -13,7 +13,7 @@ public class COOKIES : MonoBehaviour {
         //ĹE͜ T͟ ̛     T́H ҉E R ̴E ̢ ͡B̨ E͞ ̧   C O O K͏I͘ ͞E
 
         Instantiate(IDEACOOKIE, RandomizeLocation(), Quaternion.identity);
-        GameManager.instance.AddScore(1);
+        GameManager.AddScore(1);
     }
 
     Vector3 RandomizeLocation() {

@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class EntityBehaviour : MonoBehaviour {
 
     public float defaultSpeed;
+    public float defaultHealth;
 
     protected float maxSpeed;
     protected float speed;
@@ -14,12 +15,14 @@ public abstract class EntityBehaviour : MonoBehaviour {
 
     void Awake () {
         maxSpeed = defaultSpeed;
+        maxHealth = defaultHealth;
+        health = maxHealth;
 	}
 
     void Update () {
     }
 
-    public void GetDamaged(float dmg) {
+    public void ApplyDamage(float dmg) {
         health -= dmg;
         if (health < 0) Die();
     }

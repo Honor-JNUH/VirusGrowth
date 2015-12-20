@@ -28,21 +28,21 @@ public class GameManager : MonoBehaviour {
         GameManager.instance = null;
     }
 
-    public void SetGameState(GameState state) {
-        this.gameState = state;
-        OnStateChange();
+    public static void SetGameState(GameState state) {
+        instance.gameState = state;
+        instance.OnStateChange();
     }
 
-    public void AdvanceLevel() {
-        level += 1;
+    public static void AdvanceLevel() {
+        instance.level += 1;
     }
 
-    public void ResetRun() {
-        level = 1;
+    public static void ResetRun() {
+        instance.level = 1;
     }
 
-	public void AddScore(int s) {
-		score += s;
+	public static void AddScore(int s) {
+		instance.score += s;
 	}
 
 }

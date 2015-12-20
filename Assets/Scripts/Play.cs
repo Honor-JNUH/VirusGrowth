@@ -14,14 +14,13 @@ public class Play : MonoBehaviour
     public void EndPlaying()
     {
         Debug.Log("End of Level " + GM.level);
-        GM.SetGameState(GameState.END);
+        GameManager.SetGameState(GameState.END);
         Application.LoadLevel("end");
     }
 
     void Awake()
     {
-        GM = GameManager.instance;
-        GM.OnStateChange += HandleOnStateChange;
+        GameManager.instance.OnStateChange += HandleOnStateChange;
     }
 
     void Start()

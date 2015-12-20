@@ -24,8 +24,14 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
         }*/
     }
 
-    protected override void Die()
-    {
+    protected override void Die() {
+        Destroy(gameObject);
+        GameManager.AddScore(20);
         throw new NotImplementedException();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "Player")
+            collision.gameObject.SendMessage("ApplyDamage", 5);
     }
 }

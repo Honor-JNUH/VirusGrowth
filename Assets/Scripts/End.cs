@@ -5,7 +5,6 @@ using System.Collections;
 
 public class End : MonoBehaviour
 {
-    GameManager GM;
     public Button NextButton;
     public Text ScoreMessage;
 
@@ -14,20 +13,19 @@ public class End : MonoBehaviour
 
     public void GetReady()
     {
-        GM.AdvanceLevel();
-        GM.SetGameState(GameState.READY);
+        GameManager.AdvanceLevel();
+        GameManager.SetGameState(GameState.READY);
         Application.LoadLevel("ready");
     }
 
     void Awake()
     {
-        GM = GameManager.instance;
-        GM.OnStateChange += HandleOnStateChange;
+        GameManager.instance.OnStateChange += HandleOnStateChange;
     }
 
     void Start()
     {
-        ScoreMessage.text = "You made "+GM.score+" Cookies."; //DEMO ONLY
+        ScoreMessage.text = "You made "+ GameManager.instance.score +" Cookies."; //DEMO ONLY
         if (NextButton != null)
             NextButton.onClick.AddListener(() => { GetReady(); });
     }

@@ -5,7 +5,6 @@ using System.Collections;
 
 public class Ready : MonoBehaviour
 {
-    GameManager GM;
     private string[] LevelName = {"", "level_1"};
     public Button PlayButton;
 
@@ -15,7 +14,7 @@ public class Ready : MonoBehaviour
     public void BeginPlaying() {
         Debug.Log("Let the game begin! Level: " + GM.level);
 
-        GM.SetGameState(GameState.PLAY);
+        GameManager.SetGameState(GameState.PLAY);
         Application.LoadLevel(LevelName[GM.level]);
     }
 
@@ -27,8 +26,7 @@ public class Ready : MonoBehaviour
     }
 
 	void Awake() {
-		GM = GameManager.instance;
-		GM.OnStateChange += HandleOnStateChange;
+        GameManager.instance.OnStateChange += HandleOnStateChange;
 	}
 	
 }

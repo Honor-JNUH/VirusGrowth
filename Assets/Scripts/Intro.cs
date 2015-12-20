@@ -8,9 +8,9 @@ public class Intro : MonoBehaviour {
     }
 
     public void StartGame() {
-        GM.ResetRun();
+        GameManager.ResetRun();
 
-        GM.SetGameState(GameState.READY);
+        GameManager.SetGameState(GameState.READY);
         Debug.Log(GM.gameState);
 
         Application.LoadLevel("ready");
@@ -22,8 +22,7 @@ public class Intro : MonoBehaviour {
     }
 
     void Start() {
-        GM = GameManager.instance;
-        GM.OnStateChange += HandleOnStateChange;
+        GameManager.instance.OnStateChange += HandleOnStateChange;
     }
 
     public void OnGUI() {

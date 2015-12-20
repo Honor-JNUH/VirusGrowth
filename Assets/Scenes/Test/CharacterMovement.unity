@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSpeed: 4
+  defaultHealth: 30
   player: {fileID: 2135924214}
 --- !u!61 &1741565987
 BoxCollider2D:
@@ -415,6 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSpeed: 5
+  defaultHealth: 50
 --- !u!61 &2135924217
 BoxCollider2D:
   m_ObjectHideFlags: 0
