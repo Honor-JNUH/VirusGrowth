@@ -10,28 +10,27 @@ public delegate void OnStateChangeHandler();
 public class GameManager : MonoBehaviour {
     protected GameManager() { }
     public static GameManager instance = null;
-    void Awake()
-    {
-        if (instance == null) {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else { 
-            Destroy(this);
-        }
-    }
     public event OnStateChangeHandler OnStateChange;
     public GameState gameState { get; private set; }
     public int level { get; private set; }
 	public int score { get; private set; }
 
-    public void SetGameState(GameState state) {
-        this.gameState = state;
-        OnStateChange();
+    void Awake() {
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(this);
+        }
     }
 
     public void OnApplicationQuit() {
         GameManager.instance = null;
+    }
+
+    public void SetGameState(GameState state) {
+        this.gameState = state;
+        OnStateChange();
     }
 
     public void AdvanceLevel() {
@@ -41,6 +40,7 @@ public class GameManager : MonoBehaviour {
     public void ResetRun() {
         level = 1;
     }
+
 	public void AddScore(int s) {
 		score += s;
 	}
