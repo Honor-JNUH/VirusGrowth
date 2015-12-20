@@ -600,7 +600,7 @@ GameObject:
   - 4: {fileID: 1934188451}
   - 114: {fileID: 1934188450}
   m_Layer: 0
-  m_Name: _End
+  m_Name: _Ready
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
