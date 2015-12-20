@@ -10,7 +10,7 @@ public class PlayerBehaviour : EntityBehaviour {
         isMoving = false;
     }
 
-    void OnCollisionEnter2D(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
             Debug.Log("I've been hit!");
