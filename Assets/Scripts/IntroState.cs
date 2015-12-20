@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Intro : MonoBehaviour {
-    GameManager GM;
 
     public void HandleOnStateChange() {
     }
@@ -11,9 +11,7 @@ public class Intro : MonoBehaviour {
         GameManager.ResetRun();
 
         GameManager.SetGameState(GameState.READY);
-        Debug.Log(GM.gameState);
-
-        Application.LoadLevel("ready");
+        SceneManager.LoadScene("ready");
     }
 
     public void Quit() { 

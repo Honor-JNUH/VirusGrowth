@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 
 public class Ready : MonoBehaviour
 {
@@ -16,7 +16,7 @@ public class Ready : MonoBehaviour
         Debug.Log("Let the game begin! Level: " + GM.level);
 
         GameManager.SetGameState(GameState.PLAY);
-        Application.LoadLevel(LevelName[GM.level]);
+        SceneManager.LoadScene(LevelName[GM.level]);
     }
 
 

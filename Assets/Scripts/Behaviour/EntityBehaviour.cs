@@ -6,10 +6,10 @@ public abstract class EntityBehaviour : MonoBehaviour {
     public float defaultSpeed;
     public float defaultHealth;
 
-    protected float maxSpeed;
-    protected float speed;
-    protected float maxHealth;
-    protected float health;
+    public float maxSpeed { get; protected set; }
+    public float speed { get; protected set; }
+    public float maxHealth { get; protected set; }
+    public float health { get; protected set; }
     protected bool isMoving;
     protected bool isDestroyable;
 

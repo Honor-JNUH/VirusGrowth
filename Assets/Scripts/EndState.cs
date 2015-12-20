@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 
@@ -15,7 +16,7 @@ public class End : MonoBehaviour
     {
         GameManager.AdvanceLevel();
         GameManager.SetGameState(GameState.READY);
-        Application.LoadLevel("ready");
+        SceneManager.LoadScene("ready");
     }
 
     void Awake()
