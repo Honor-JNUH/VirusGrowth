@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update () {
-        //keyboard input
+        //keyboard input movement
         float sero = Input.GetAxis ("Vertical");
 		float garo = Input.GetAxis ("Horizontal");
 
@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour {
             behaviour.StopMoving();
 
         behaviour.Move(dir);
+
+        //shooting
+
 	}
 
 }

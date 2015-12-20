@@ -22,8 +22,9 @@ public abstract class EntityBehaviour : MonoBehaviour {
     void Update () {
     }
 
-    public void ApplyDamage(float dmg) {
+    public virtual void ApplyDamage(float dmg) {
         health -= dmg;
+        Debug.Log(health);
         if (health < 0) Die();
     }
 

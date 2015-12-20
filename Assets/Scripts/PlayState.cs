@@ -20,7 +20,7 @@ public class PlayState : MonoBehaviour
         SceneManager.LoadScene("end");
     }
 
-    void OnGui() {
+    void Update() {
         hpText.text = player.health.ToString();
         scoreText.text = GM.score.ToString();
     }
