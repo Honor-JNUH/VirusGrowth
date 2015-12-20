@@ -3,21 +3,21 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    PlayerBehaviour behaviour;
+    public PlayerBehaviour behaviour;
 
     void Update () {
 		float sero = Input.GetAxis ("Vertical");
 		float garo = Input.GetAxis ("Horizontal");
 
-        if (garo!= 0)
-            Debug.Log(garo);
+        Vector3 dir = new Vector3(garo, sero, 0);
 
-		if(sero != 0 || garo != 0) {
-            Vector3 dir = new Vector3(garo, sero, 0);
+        //Debug.Log("Input magnitude:" + dir.magnitude);
+
+        if (dir.magnitude > 0.2) {
             behaviour.moveDirInput = dir;
-            behaviour.isMoveInputActive = true;
+            behaviour.KeepMoving();
         } else {
-            behaviour.isMoveInputActive = false;
+            behaviour.StopMoving();
         }
 
 	}

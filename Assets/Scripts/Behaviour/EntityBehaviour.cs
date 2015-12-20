@@ -7,25 +7,39 @@ public class EntityBehaviour : MonoBehaviour {
 
     protected float maxSpeed;
     protected float speed;
+    protected bool isMoving;
 
-    void Start () {
+    void Awake () {
         maxSpeed = defaultSpeed;
 	}
 	
-	void Update () {
-	
-	}
-
     public void Move(Vector3 dir)
     {
-        Vector3.Normalize(dir);
+        if (isMoving && speed < maxSpeed)
+            Accelerate();
+        if (!isMoving && speed > 0)
+            Deccelerate();
+
+        dir = dir.normalized;
         transform.Translate(transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
         transform.rotation = Quaternion.FromToRotation(Vector3.right, dir);
+
+        Debug.Log(speed);
     }
 
     public void Follow(Vector3 target)
     {
         Move(target - transform.position);
+    }
+
+    public void Accelerate()
+    {
+        speed = Mathf.Lerp(speed, maxSpeed, Time.time);
+    }
+
+    public void Deccelerate()
+    {
+        speed = Mathf.Lerp(speed, 0, Time.time);
     }
 
 }

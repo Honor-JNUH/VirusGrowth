@@ -3,19 +3,19 @@ using System.Collections;
 
 public class PlayerBehaviour : EntityBehaviour {
 
-    public bool isMoveInputActive;
-    public bool isShootInputActive;
-    public Vector3 moveDirInput;
+    public Vector3 moveDirInput { get; set; }
 
     void Update()
     {
-
-        if(isMoveInputActive) {
-           speed = Mathf.Lerp(speed, maxSpeed, Time.time);
-        } else {
-           speed = Mathf.Lerp(speed, 0, Time.time);
-        }
         Move(moveDirInput);
     }
 
+    public void KeepMoving()
+    {
+        isMoving = true;
+    }
+    public void StopMoving()
+    {
+        isMoving = false;
+    }
 }
