@@ -26,10 +26,4 @@ public class PlayerController : MonoBehaviour {
         behaviour.Move(dir);
 	}
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-            Debug.Log("I've been hit!");
-    }
-
 }

@@ -16,6 +16,9 @@ public abstract class EntityBehaviour : MonoBehaviour {
         maxSpeed = defaultSpeed;
 	}
 
+    void Update () {
+    }
+
     public void GetDamaged(float dmg) {
         health -= dmg;
         if (health < 0) Die();
