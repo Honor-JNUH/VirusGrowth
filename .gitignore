@@ -1,6 +1,7 @@
 # Unity files
 Temp/
 Library/
+Build/
 *.db
 
 #Un-ignore these specific files
