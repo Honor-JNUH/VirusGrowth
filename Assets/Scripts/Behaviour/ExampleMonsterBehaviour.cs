@@ -17,8 +17,8 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
             isMoving = true;
             Follow(playerPos);
         } else { 
-            isMoving = false;
-            HeadTowards(playerPos);
+            isMoving = true;
+            LookAt(playerPos);
         }
     }
 

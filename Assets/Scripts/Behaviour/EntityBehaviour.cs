@@ -40,10 +40,10 @@ public abstract class EntityBehaviour : MonoBehaviour {
         transform.Translate(transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
         transform.rotation = Quaternion.FromToRotation(Vector3.right, dir);
 
-        Debug.Log(speed);
+        //Debug.Log(speed);
     }
 
-    public void HeadTowards(Vector3 target)
+    public void LookAt(Vector3 target)
     {
         Vector3 self = transform.position;
         transform.rotation = Quaternion.FromToRotation(Vector3.right, target - self);
