@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    private Vector3 dir;
+    PlayerBehaviour behaviour;
 
     void Update () {
 		float sero = Input.GetAxis ("Vertical");
@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour {
             Debug.Log(garo);
 
 		if(sero != 0 || garo != 0) {
-            dir = new Vector3(garo, sero, 0);
-            
+            Vector3 dir = new Vector3(garo, sero, 0);
+            behaviour.moveDirInput = dir;
+            behaviour.isMoveInputActive = true;
+        } else {
+            behaviour.isMoveInputActive = false;
         }
+
 	}
 
 

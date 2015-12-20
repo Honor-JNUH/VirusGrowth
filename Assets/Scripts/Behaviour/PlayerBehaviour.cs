@@ -5,6 +5,7 @@ public class PlayerBehaviour : EntityBehaviour {
 
     public bool isMoveInputActive;
     public bool isShootInputActive;
+    public Vector3 moveDirInput;
 
     void Update()
     {
@@ -14,7 +15,7 @@ public class PlayerBehaviour : EntityBehaviour {
         } else {
            speed = Mathf.Lerp(speed, 0, Time.time);
         }
-
+        Move(moveDirInput);
     }
 
 }
