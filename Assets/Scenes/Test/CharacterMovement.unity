@@ -85,6 +85,23 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &264777814 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100798, guid: b0b3275b00b2e8d43ba1027f8a643f74, type: 2}
+  m_PrefabInternal: {fileID: 1710474499}
+--- !u!58 &264777815
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 264777814}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 2.98023224e-08, y: -5.96046448e-08}
+  serializedVersion: 2
+  m_Radius: .5
 --- !u!1001 &1710474499
 Prefab:
   m_ObjectHideFlags: 0
@@ -148,9 +165,28 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6571048, guid: b0b3275b00b2e8d43ba1027f8a643f74, type: 2}
+    - {fileID: 13532684, guid: b0b3275b00b2e8d43ba1027f8a643f74, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b0b3275b00b2e8d43ba1027f8a643f74, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1724878864 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100798, guid: b0b3275b00b2e8d43ba1027f8a643f74, type: 2}
+  m_PrefabInternal: {fileID: 1741565984}
+--- !u!58 &1724878867
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1724878864}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .5
 --- !u!1001 &1741565984
 Prefab:
   m_ObjectHideFlags: 0
@@ -210,7 +246,13 @@ Prefab:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 122164, guid: b0b3275b00b2e8d43ba1027f8a643f74, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6571048, guid: b0b3275b00b2e8d43ba1027f8a643f74, type: 2}
+    - {fileID: 13532684, guid: b0b3275b00b2e8d43ba1027f8a643f74, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b0b3275b00b2e8d43ba1027f8a643f74, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1741565985 stripped
@@ -230,21 +272,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 4
   player: {fileID: 2135924214}
---- !u!54 &1741565991
-Rigidbody:
+--- !u!61 &1741565987
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1741565985}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
+  m_Size: {x: 1, y: .99999994}
+--- !u!50 &1741565991
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1741565985}
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1856170320
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,18 +415,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSpeed: 5
---- !u!54 &2135924221
-Rigidbody:
+--- !u!61 &2135924217
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2135924214}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
+  m_Size: {x: 1, y: .99999994}
+--- !u!50 &2135924221
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135924214}
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
