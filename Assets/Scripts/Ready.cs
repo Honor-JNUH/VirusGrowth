@@ -12,6 +12,7 @@ public class Ready : MonoBehaviour
     }
 
     public void BeginPlaying() {
+        GameManager GM = GameManager.instance;
         Debug.Log("Let the game begin! Level: " + GM.level);
 
         GameManager.SetGameState(GameState.PLAY);
