@@ -1,23 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EntityBehaviour : MonoBehaviour {
+public abstract class EntityBehaviour : MonoBehaviour {
 
     public float defaultSpeed;
 
     protected float maxSpeed;
     protected float speed;
+    protected float maxHealth;
+    protected float health;
     protected bool isMoving;
+    protected bool isDestroyable;
 
     void Awake () {
         maxSpeed = defaultSpeed;
 	}
-	
+
+    public void GetDamaged(float dmg) {
+        health -= dmg;
+        if (health < 0) Die();
+    }
+
+    protected abstract void Die();
+
+    public void Follow(Vector3 target)
+    {
+        Vector3 self = transform.position;
+        Move(target - self);
+    }
+
     public void Move(Vector3 dir)
     {
         if (isMoving && speed < maxSpeed)
             Accelerate();
-        if (!isMoving && speed > 0)
+        else if (!isMoving && speed > 0)
             Deccelerate();
 
         dir = dir.normalized;
@@ -27,9 +43,10 @@ public class EntityBehaviour : MonoBehaviour {
         Debug.Log(speed);
     }
 
-    public void Follow(Vector3 target)
+    public void HeadTowards(Vector3 target)
     {
-        Move(target - transform.position);
+        Vector3 self = transform.position;
+        transform.rotation = Quaternion.FromToRotation(Vector3.right, target - self);
     }
 
     public void Accelerate()

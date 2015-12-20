@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ExampleMonsterBehaviour : EntityBehaviour {
 
@@ -17,6 +18,12 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
             Follow(playerPos);
         } else { 
             isMoving = false;
+            HeadTowards(playerPos);
         }
+    }
+
+    protected override void Die()
+    {
+        throw new NotImplementedException();
     }
 }
