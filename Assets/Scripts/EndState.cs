@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 
-public class End : MonoBehaviour
+public class EndState : MonoBehaviour
 {
     public Button NextButton;
     public Text ScoreMessage;

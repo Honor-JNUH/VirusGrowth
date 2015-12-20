@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Play : MonoBehaviour
+public class PlayState : MonoBehaviour
 {
     
     public Button nextButton; //DEMO ONLY; Various winning/losing conditions should be implemented for the final game

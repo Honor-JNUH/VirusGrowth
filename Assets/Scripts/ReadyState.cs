@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Ready : MonoBehaviour
+public class ReadyState : MonoBehaviour
 {
     private string[] LevelName = {"", "level_1"};
     public Button PlayButton;

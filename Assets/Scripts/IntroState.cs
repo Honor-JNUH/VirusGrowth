@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Intro : MonoBehaviour {
+public class IntroState : MonoBehaviour {
 
     public void HandleOnStateChange() {
     }
