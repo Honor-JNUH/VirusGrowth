@@ -1,21 +1,18 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
+using UnityEngine;
 
 public class PlayerBehaviour : EntityBehaviour {
 
-    public Vector3 moveDirInput { get; set; }
-
-    void Update()
-    {
-        Move(moveDirInput);
-    }
-
-    public void KeepMoving()
-    {
+    public void KeepMoving() {
         isMoving = true;
     }
-    public void StopMoving()
-    {
+    public void StopMoving() {
         isMoving = false;
     }
+
+    protected override void Die()
+    {
+        throw new NotImplementedException();
+    }
+
 }
