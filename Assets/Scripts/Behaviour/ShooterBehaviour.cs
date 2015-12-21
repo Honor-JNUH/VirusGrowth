@@ -5,8 +5,9 @@ public class ShooterBehaviour : MonoBehaviour {
 
     public GameObject bullet;
     public float fireSpeed;
-
     float lastFired;
+
+    public Vector2 forward { get { return transform.TransformDirection(Vector2.right); } }
 
     protected void ShootAt(Vector3 target)
     {

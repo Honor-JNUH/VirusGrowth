@@ -24,7 +24,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
 
     protected virtual void ApplyDamage(float dmg) {
         health -= dmg;
-        Debug.Log(health);
+        Debug.Log("Ouch!! got " +dmg+ " dmg");
         if (health < 0) Die();
     }
 

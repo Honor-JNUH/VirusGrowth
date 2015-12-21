@@ -5,7 +5,6 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
 
     public GameObject player;
 
-
     void Start () 
     {
         isMoving = true;
@@ -31,7 +30,6 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
     {
         Destroy(gameObject);
         GameManager.AddScore(20);
-        throw new NotImplementedException();
     }
 
     void OnCollisionEnter2D(Collision2D collision) {

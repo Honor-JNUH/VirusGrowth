@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 195662, guid: 3dabefc4ddcde6546abd2c5fa8b81183, type: 2}
-  fireSpeed: 0.1
+  fireSpeed: 0.3
 --- !u!1 &988190674
 GameObject:
   m_ObjectHideFlags: 0

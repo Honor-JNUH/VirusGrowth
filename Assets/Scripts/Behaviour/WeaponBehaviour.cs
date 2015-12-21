@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public abstract class WeaponBehaviour : MonoBehaviour {
 
@@ -8,28 +9,27 @@ public abstract class WeaponBehaviour : MonoBehaviour {
 
     public float damage { get; protected set; }
 
-    void Start () 
+    void Awake () 
     {
         damage = defaultDamage;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        HandleCollision(collision);
-    }
-
-    protected virtual void Hit(GameObject o) 
+    protected virtual void Hit(GameObject o)
     {
         o.SendMessage("ApplyDamage", damage);
     }
 
-    protected virtual void HandleCollision(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        GameObject o = collision.gameObject;
-        if (o.tag == targetTag)
-            Hit(o);
-            Debug.Log("fuck");
+        HandleTrigger(collider);
     }
 
-    
+    void OnTriggerEnter2D(Collision2D collision)
+    {
+        HandleCollision(collision);
+    }
+
+    protected virtual void HandleCollision(Collision2D collision) { }
+    protected virtual void HandleTrigger(Collider2D collider) { }
+ 
 }
