@@ -19,14 +19,14 @@ public class BulletBehaviour : WeaponBehaviour {
 
     protected virtual void Move() 
     {
-        //body.MovePosition(body.position + dir * speed * Time.deltaTime);
+        body.MovePosition(body.position + dir * speed * Time.deltaTime);
         body.MoveRotation(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
     }
 
-    protected virtual void Fire(Vector2 v)
+    protected virtual void Fire(Vector2 d)
     {
-        dir = v;
-        body.AddForce(v);
+        dir = d.normalized;
+        //body.AddForce(d * speed);
     }
 
 }

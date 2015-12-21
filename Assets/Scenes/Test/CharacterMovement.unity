@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802db3d78fd2a0041a3c9b9d6596f488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpeed: 5
+  defaultSpeed: 10
   defaultHealth: 50
   shooter: {fileID: 527653394}
 --- !u!61 &2135924217
