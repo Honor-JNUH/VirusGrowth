@@ -10,8 +10,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
     public float speed { get; protected set; }
     public float maxHealth { get; protected set; }
     public float health { get; protected set; }
-    public GameObject bullet { get; protected set; }
-    public float fireSpeed { get; protected set; }
+    
     protected bool isMoving = false;
     protected bool isDestroyable = true;
 
@@ -28,22 +27,6 @@ public abstract class EntityBehaviour : MonoBehaviour {
     }
 
     protected abstract void Die();
-
-    protected virtual void Shoot(Vector3 pos, Vector3 dir)
-    {
-        Quaternion rot = Quaternion.FromToRotation(Vector3.right, dir);
-        Shoot(rot, pos);
-    }
-
-    protected virtual void Shoot(Vector3 pos, Quaternion rot)
-    {
-        if (lastFired + shootSpeed < Time.time)
-        {
-            GameObject newbullet = Instantiate(bullet, pos, rot);
-            newbullet.SendMessage("Fire", rot);
-            lastFired = Time.time;
-        }
-    }
 
     protected void Follow(Vector3 target)
     {
