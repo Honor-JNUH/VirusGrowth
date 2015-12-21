@@ -4,13 +4,12 @@ using System.Collections;
 public abstract class WeaponBehaviour : MonoBehaviour {
 
     public float defaultDamage;
-    public String targetTag;
+    public string targetTag;
 
-    float damage { get; protected set; }
+    public float damage { get; protected set; }
 
     void Start () 
     {
-        speed = defaultSpeed;
         damage = defaultDamage;
     }
 

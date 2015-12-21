@@ -17,7 +17,7 @@ public abstract class ShooterBehaviour : MonoBehaviour {
     {
         if (lastFired + fireSpeed < Time.time)
         {
-            GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.FromToRotation(Vector2.right, Vector2.right));
+            GameObject newBullet = (GameObject) Instantiate(bullet, transform.position, Quaternion.FromToRotation(Vector2.right, Vector2.right));
             newBullet.SendMessage("Fire", dir);
             lastFired = Time.time;
         }

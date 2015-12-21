@@ -15,11 +15,13 @@ public abstract class BulletBehaviour : WeaponBehaviour {
 
     protected virtual void Move() 
     {
-        body.MovePosition(body.position + transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
+        Rigidbody2D body = GetComponent<Rigidbody2D>();
+        body.MovePosition(body.position + (Vector2) transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
     }
 
     protected virtual void Fire(Vector2 v)
     {
+        Rigidbody2D body = GetComponent<Rigidbody2D>();
         dir = v;
         body.MoveRotation(Mathf.Atan2(dir.y, dir.x));
     }
