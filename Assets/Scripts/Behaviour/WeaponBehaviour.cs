@@ -6,9 +6,7 @@ public abstract class WeaponBehaviour : MonoBehaviour {
     public float defaultDamage;
     public String targetTag;
 
-    public float damage { get; protected set; }
-
-    protected string targetTag;
+    float damage { get; protected set; }
 
     void Start () 
     {
