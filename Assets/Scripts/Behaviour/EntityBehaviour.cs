@@ -10,8 +10,10 @@ public abstract class EntityBehaviour : MonoBehaviour {
     public float speed { get; protected set; }
     public float maxHealth { get; protected set; }
     public float health { get; protected set; }
-    protected bool isMoving;
-    protected bool isDestroyable;
+    public GameObject bullet { get; protected set; }
+    public float fireSpeed { get; protected set; }
+    protected bool isMoving = false;
+    protected bool isDestroyable = true;
 
     void Awake () {
         maxSpeed = defaultSpeed;
@@ -29,6 +31,10 @@ public abstract class EntityBehaviour : MonoBehaviour {
     }
 
     protected abstract void Die();
+
+    public virtual void Shoot() {
+        
+    }
 
     public void Follow(Vector3 target)
     {
