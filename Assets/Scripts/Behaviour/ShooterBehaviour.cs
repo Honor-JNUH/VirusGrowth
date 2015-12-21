@@ -13,12 +13,12 @@ public abstract class ShooterBehaviour : MonoBehaviour {
         Shoot(target - transform.position);
     }
 
-    protected virtual void Shoot(Vector3 dir)
+    protected virtual void Shoot(Vector2 dir)
     {
         if (lastFired + fireSpeed < Time.time)
         {
-            GameObject newbullet = Instantiate(bullet, transform.position, new Vector2(0,0));
-            newbullet.SendMessage("Fire", dir);
+            GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.FromToRotation(Vector2.right, Vector2.right));
+            newBullet.SendMessage("Fire", dir);
             lastFired = Time.time;
         }
     }

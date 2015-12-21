@@ -46,7 +46,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
         //dir = dir.normalized;
         //transform.Translate(transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
         //Quaternion.FromToRotation(Vector2.right, dir)
-        body.MoveRotation(Vector2.Angle(Vector2.up, dir));    
+        body.MoveRotation(Mathf.Atan2(dir.y, dir.x));
         body.MovePosition(body.position + transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
         
         //Debug.Log(speed);
@@ -54,8 +54,8 @@ public abstract class EntityBehaviour : MonoBehaviour {
 
     protected void LookAt(Vector2 target)
     {
-        Vector2 self = transform.position;
-        transform.rotation = Quaternion.FromToRotation(Vector2.right, target - self);
+        Vector2 dir = target - transform.position;
+        body.MoveRotation(Vector2.Angle(Mathf.Atan2(dir.y, dir.x)));
     }
 
     protected void Accelerate()
