@@ -21,10 +21,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
         health = maxHealth;
 	}
 
-    void Update () {
-    }
-
-    public virtual void ApplyDamage(float dmg) {
+    protected virtual void ApplyDamage(float dmg) {
         health -= dmg;
         Debug.Log(health);
         if (health < 0) Die();
@@ -32,13 +29,13 @@ public abstract class EntityBehaviour : MonoBehaviour {
 
     protected abstract void Die();
 
-    public virtual void Shoot(Vector3 pos, Vector3 dir)
+    protected virtual void Shoot(Vector3 pos, Vector3 dir)
     {
         Quaternion rot = Quaternion.FromToRotation(Vector3.right, dir);
         Shoot(rot, pos);
     }
 
-    public virtual void Shoot(Vector3 pos, Quaternion rot)
+    protected virtual void Shoot(Vector3 pos, Quaternion rot)
     {
         if (lastFired + shootSpeed < Time.time)
         {
@@ -48,13 +45,13 @@ public abstract class EntityBehaviour : MonoBehaviour {
         }
     }
 
-    public void Follow(Vector3 target)
+    protected void Follow(Vector3 target)
     {
         Vector3 self = transform.position;
         Move(target - self);
     }
 
-    public void Move(Vector3 dir)
+    protected void Move(Vector3 dir)
     {
         if (isMoving && speed < maxSpeed)
             Accelerate();
@@ -69,18 +66,18 @@ public abstract class EntityBehaviour : MonoBehaviour {
         //Debug.Log(speed);
     }
 
-    public void LookAt(Vector3 target)
+    protected void LookAt(Vector3 target)
     {
         Vector3 self = transform.position;
         transform.rotation = Quaternion.FromToRotation(Vector3.right, target - self);
     }
 
-    public void Accelerate()
+    protected void Accelerate()
     {
         speed = Mathf.Lerp(speed, maxSpeed, Time.time);
     }
 
-    public void Deccelerate()
+    protected void Deccelerate()
     {
         speed = Mathf.Lerp(speed, 0, Time.time);
     }

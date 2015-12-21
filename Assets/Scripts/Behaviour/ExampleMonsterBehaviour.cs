@@ -5,11 +5,14 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
 
     public GameObject player;
 
-    void Start () {
+
+    void Start () 
+    {
         isMoving = true;
     }
 
-	void Update () {
+	void Update () 
+    {
         Vector3 playerPos = player.transform.position;
         Vector3 selfPos = transform.position;
         
@@ -22,7 +25,8 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
         }
     }
 
-    protected override void Die() {
+    protected override void Die() 
+    {
         Destroy(gameObject);
         GameManager.AddScore(20);
         throw new NotImplementedException();
