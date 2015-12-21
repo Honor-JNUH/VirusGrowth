@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class ExampleMonsterBehaviour : EntityBehaviour {
 
+    public float contactDamage;
     public GameObject player;
+    
 
     void Start () 
     {
@@ -34,6 +36,6 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Player")
-            collision.gameObject.SendMessage("ApplyDamage", 5);
+            collision.gameObject.SendMessage("ApplyDamage", contactDamage);
     }
 }

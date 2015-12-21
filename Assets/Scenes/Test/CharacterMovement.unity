@@ -901,6 +901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 3
   defaultHealth: 30
+  contactDamage: 2
   player: {fileID: 2135924214}
 --- !u!61 &1741565987
 BoxCollider2D:
