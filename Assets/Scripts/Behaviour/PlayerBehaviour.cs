@@ -15,7 +15,7 @@ public class PlayerBehaviour : EntityBehaviour {
         isMoving = false;
     }
 
-    public override void ApplyDamage(float dmg) 
+    protected override void ApplyDamage(float dmg) 
     {
         if (Time.time > lastHit + invincivilityTime) { 
             base.ApplyDamage(dmg);
