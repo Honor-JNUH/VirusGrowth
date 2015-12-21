@@ -6,6 +6,16 @@ public class PlayerBehaviour : EntityBehaviour {
     float invincivilityTime = 1;
     float lastHit;
 
+    bool isInvincible { get {return Time.time < lastHit + invincivilityTime;} set {} }
+
+    void Update()
+    {
+        if (isInvincible)
+        {
+            StartCoroutine(Blink());
+        }
+    }
+
     public void KeepMoving() 
     {
         isMoving = true;
@@ -15,9 +25,14 @@ public class PlayerBehaviour : EntityBehaviour {
         isMoving = false;
     }
 
+    IEneumerator Blink()
+    {
+        yield return new WaitForSeconds(0.2f);
+    }
+
     protected override void ApplyDamage(float dmg) 
     {
-        if (Time.time > lastHit + invincivilityTime) { 
+        if (!isInvincible) { 
             base.ApplyDamage(dmg);
             lastHit = Time.time;
         }
