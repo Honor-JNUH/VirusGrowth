@@ -15,16 +15,10 @@ public abstract class ShooterBehaviour : MonoBehaviour {
 
     protected virtual void Shoot(Vector3 dir)
     {
-        Quaternion rot = Quaternion.FromToRotation(Vector3.right, dir);
-        Shoot(rot);
-    }
-
-    protected virtual void Shoot(Quaternion dir)
-    {
         if (lastFired + fireSpeed < Time.time)
         {
-            GameObject newbullet = Instantiate(bullet, transform.position, dir);
-            newbullet.SendMessage("Fire");
+            GameObject newbullet = Instantiate(bullet, transform.position, new Vector2(0,0));
+            newbullet.SendMessage("Fire", dir);
             lastFired = Time.time;
         }
     }

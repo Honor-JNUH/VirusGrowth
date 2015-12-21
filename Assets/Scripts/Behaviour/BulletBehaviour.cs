@@ -7,9 +7,9 @@ public abstract class BulletBehaviour : WeaponBehaviour {
     public float speed { get; protected set; }
 
 
-    protected virtual void Fire() 
+    protected virtual void Fire(Vector3 dir) 
     {
-        transform.Translate(transform.forward * speed * Time.deltaTime);
+        //transform.Translate(transform.forward * speed * Time.deltaTime);
     }
     
 }

@@ -28,31 +28,34 @@ public abstract class EntityBehaviour : MonoBehaviour {
 
     protected abstract void Die();
 
-    protected void Follow(Vector3 target)
+    protected void Follow(Vector2 target)
     {
-        Vector3 self = transform.position;
+        Vector2 self = transform.position;
         Move(target - self);
     }
 
-    protected void Move(Vector3 dir)
+    protected void Move(Vector2 dir)
     {
         if (isMoving && speed < maxSpeed)
             Accelerate();
         else if (!isMoving && speed > 0)
             Deccelerate();
 
+        Rigidbody body = GetComponent<Rigidbody2D>();
+
         //dir = dir.normalized;
         //transform.Translate(transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
-        transform.rotation = Quaternion.FromToRotation(Vector3.right, dir);
-        transform.Translate(transform.forward * speed * Time.deltaTime);
+        //Quaternion.FromToRotation(Vector2.right, dir)
+        body.MoveRotation(Vector2.Angle(Vector2.up, dir));    
+        body.MovePosition(body.position + transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
         
         //Debug.Log(speed);
     }
 
-    protected void LookAt(Vector3 target)
+    protected void LookAt(Vector2 target)
     {
-        Vector3 self = transform.position;
-        transform.rotation = Quaternion.FromToRotation(Vector3.right, target - self);
+        Vector2 self = transform.position;
+        transform.rotation = Quaternion.FromToRotation(Vector2.right, target - self);
     }
 
     protected void Accelerate()

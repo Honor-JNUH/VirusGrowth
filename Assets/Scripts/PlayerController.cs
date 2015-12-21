@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     public PlayerBehaviour behaviour;
 
     void Start () {
-        dir = new Vector3(0, 0, 0);
+        dir = new Vector2(0, 0);
     }
 
     void Update () {
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 		float garo = Input.GetAxis ("Horizontal");
 
         if (garo != 0 || sero != 0)
-            dir = new Vector3(garo, sero, 0);
+            dir = new Vector2(garo, sero);
 
         if (dir.magnitude > 0.3)
             behaviour.KeepMoving();

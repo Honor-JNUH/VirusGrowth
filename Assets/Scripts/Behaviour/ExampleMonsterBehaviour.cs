@@ -13,10 +13,10 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
 
 	void Update () 
     {
-        Vector3 playerPos = player.transform.position;
-        Vector3 selfPos = transform.position;
+        Vector2 playerPos = player.transform.position;
+        Vector2 selfPos = transform.position;
         
-        if (Vector3.Distance(playerPos, selfPos) > 2) { 
+        if (Vector2.Distance(playerPos, selfPos) > 2) { 
             isMoving = true;
             Follow(playerPos);
         } else { 
