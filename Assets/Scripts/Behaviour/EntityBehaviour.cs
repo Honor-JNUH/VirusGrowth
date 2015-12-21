@@ -32,8 +32,20 @@ public abstract class EntityBehaviour : MonoBehaviour {
 
     protected abstract void Die();
 
-    public virtual void Shoot() {
-        
+    public virtual void Shoot(Vector3 pos, Vector3 dir)
+    {
+        Quaternion rot = Quaternion.FromToRotation(Vector3.right, dir);
+        Shoot(rot, pos);
+    }
+
+    public virtual void Shoot(Vector3 pos, Quaternion rot)
+    {
+        if (lastFired + shootSpeed < Time.time)
+        {
+            GameObject newbullet = Instantiate(bullet, pos, rot);
+            newbullet.SendMessage("Fire", rot);
+            lastFired = Time.time;
+        }
     }
 
     public void Follow(Vector3 target)
@@ -49,10 +61,11 @@ public abstract class EntityBehaviour : MonoBehaviour {
         else if (!isMoving && speed > 0)
             Deccelerate();
 
-        dir = dir.normalized;
-        transform.Translate(transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
+        //dir = dir.normalized;
+        //transform.Translate(transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
         transform.rotation = Quaternion.FromToRotation(Vector3.right, dir);
-
+        transform.Translate(transform.forward * speed * Time.deltaTime);
+        
         //Debug.Log(speed);
     }
 
