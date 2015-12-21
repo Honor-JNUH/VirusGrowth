@@ -41,21 +41,21 @@ public abstract class EntityBehaviour : MonoBehaviour {
         else if (!isMoving && speed > 0)
             Deccelerate();
 
-        Rigidbody2D body = GetComponent<Rigidbody2D>();
+        Rigidbody body = GetComponent<Rigidbody2D>();
 
         //dir = dir.normalized;
         //transform.Translate(transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
         //Quaternion.FromToRotation(Vector2.right, dir)
         body.MoveRotation(Mathf.Atan2(dir.y, dir.x));
-        body.MovePosition(body.position + (Vector2) transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
+        body.MovePosition(body.position + transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
         
         //Debug.Log(speed);
     }
 
     protected void LookAt(Vector2 target)
     {
-        Vector2 dir = target - (Vector2) transform.position;
-        GetComponent<Rigidbody2D>().MoveRotation(Mathf.Atan2(dir.y, dir.x));
+        Vector2 dir = target - transform.position;
+        body.MoveRotation(Vector2.Angle(Mathf.Atan2(dir.y, dir.x)));
     }
 
     protected void Accelerate()

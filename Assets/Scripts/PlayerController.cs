@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
         else
             behaviour.StopMoving();
 
-        behaviour.SendMessage("Move",dir);
+        behaviour.Move(dir);
 
         //shooting
 
