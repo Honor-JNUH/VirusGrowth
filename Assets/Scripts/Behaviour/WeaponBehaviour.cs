@@ -18,18 +18,4 @@ public abstract class WeaponBehaviour : MonoBehaviour {
     {
         o.SendMessage("ApplyDamage", damage);
     }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        HandleTrigger(collider);
-    }
-
-    void OnTriggerEnter2D(Collision2D collision)
-    {
-        HandleCollision(collision);
-    }
-
-    protected virtual void HandleCollision(Collision2D collision) { }
-    protected virtual void HandleTrigger(Collider2D collider) { }
- 
 }

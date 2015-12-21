@@ -29,12 +29,13 @@ public class BulletBehaviour : WeaponBehaviour {
         //body.AddForce(forward * 1000000);
     }
 
-    protected override void HandleTrigger(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         GameObject o = collider.gameObject;
-        if (o.tag == targetTag)
+        if (o.tag == targetTag) { 
             Hit(o);
             Destroy(gameObject);
+        }
     }
 
 }
