@@ -1,29 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class BulletBehaviour : WeaponBehaviour {
+public class BulletBehaviour : WeaponBehaviour {
 
     public float defaultSpeed;
     public float speed { get; protected set; }
 
-    public Vector2 dir;
+    protected Vector2 dir;
+    protected Rigidbody2D body { get { return GetComponent<Rigidbody2D>(); } }
 
-    void Update()
-    {
+    void Start () {
+        speed = defaultSpeed;
+    }
+
+    void Update() {
         Move();
     }
 
     protected virtual void Move() 
     {
-        Rigidbody2D body = GetComponent<Rigidbody2D>();
-        body.MovePosition(body.position + dir * speed * Time.deltaTime);
+        //body.MovePosition(body.position + dir * speed * Time.deltaTime);
+        body.MoveRotation(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
     }
 
     protected virtual void Fire(Vector2 v)
     {
-        Rigidbody2D body = GetComponent<Rigidbody2D>();
         dir = v;
-        body.MoveRotation(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
+        body.AddForce(v);
     }
 
 }

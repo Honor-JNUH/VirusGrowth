@@ -48,8 +48,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
         //Quaternion.FromToRotation(Vector2.right, dir)
         body.MoveRotation(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
         body.MovePosition(body.position + dir * speed * Time.deltaTime);
-
-        Debug.Log(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
+        
     }
 
     protected void LookAt(Vector2 target)

@@ -3,8 +3,8 @@ using System.Collections;
 
 public abstract class WeaponBehaviour : MonoBehaviour {
 
-    public float defaultDamage;
     public string targetTag;
+    public float defaultDamage;
 
     public float damage { get; protected set; }
 

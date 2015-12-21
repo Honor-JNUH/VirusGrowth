@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    Vector2 dir;
     public PlayerBehaviour behaviour;
-
+    Vector2 dir;
+    
     void Start () {
         dir = new Vector2(0, 0);
     }
@@ -26,7 +26,9 @@ public class PlayerController : MonoBehaviour {
         behaviour.SendMessage("Move", dir);
 
         //shooting
-
+        if (Input.GetKey("z")) {
+            behaviour.shooter.SendMessage("Shoot", (Vector2) behaviour.gameObject.transform.forward);
+        }
 	}
 
 }

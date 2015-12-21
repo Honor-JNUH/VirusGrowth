@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class PlayerBehaviour : EntityBehaviour {
 
+    public GameObject shooter;
+
     float protectDuration = 0.5f;
     bool isProtected = false;
 
-
-    public void KeepMoving() 
-    {
+    public void KeepMoving() {
         isMoving = true;
     }
-    public void StopMoving() 
-    {
+    public void StopMoving() {
         isMoving = false;
     }
 
@@ -26,10 +25,8 @@ public class PlayerBehaviour : EntityBehaviour {
 
         while (timer > 0f) {
             timer -= Time.deltaTime;
-            //toggle renderer
             renderer.enabled = !renderer.enabled;
-
-            //wait for a bit
+            
             yield return new WaitForSeconds(blinkTime);
         }
        

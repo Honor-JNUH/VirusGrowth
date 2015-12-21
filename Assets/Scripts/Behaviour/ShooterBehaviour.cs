@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class ShooterBehaviour : MonoBehaviour {
+public class ShooterBehaviour : MonoBehaviour {
 
     public GameObject bullet;
     public float fireSpeed;
@@ -17,7 +17,8 @@ public abstract class ShooterBehaviour : MonoBehaviour {
     {
         if (lastFired + fireSpeed < Time.time)
         {
-            GameObject newBullet = (GameObject) Instantiate(bullet, transform.position, Quaternion.FromToRotation(Vector2.right, Vector2.right));
+            Quaternion rot = Quaternion.FromToRotation(Vector2.right, Vector2.right);
+            GameObject newBullet = (GameObject) Instantiate(bullet, transform.position, rot);
             newBullet.SendMessage("Fire", dir);
             lastFired = Time.time;
         }
