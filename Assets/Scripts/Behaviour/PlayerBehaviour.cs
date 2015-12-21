@@ -1,20 +1,12 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerBehaviour : EntityBehaviour {
 
-    float invincivilityTime = 1;
-    float lastHit;
+    float protectDuration = 1;
+    bool isProtected = false;
 
-    bool isInvincible { get {return Time.time < lastHit + invincivilityTime;} set {} }
-
-    void Update()
-    {
-        if (isInvincible)
-        {
-            StartCoroutine(Blink());
-        }
-    }
 
     public void KeepMoving() 
     {
@@ -25,16 +17,32 @@ public class PlayerBehaviour : EntityBehaviour {
         isMoving = false;
     }
 
-    IEneumerator Blink()
+    IEnumerator GetProtected(float blinkTime)
     {
-        yield return new WaitForSeconds(0.2f);
+        Renderer renderer = GetComponent<Renderer>();
+        float timer = protectDuration;
+
+        isProtected = true;
+
+        while (timer > 0f) {
+            timer -= Time.deltaTime;
+            //toggle renderer
+            renderer.enabled = !renderer.enabled;
+
+            //wait for a bit
+            yield return new WaitForSeconds(blinkTime);
+        }
+       
+        renderer.enabled = true;
+        isProtected = false;
     }
+
 
     protected override void ApplyDamage(float dmg) 
     {
-        if (!isInvincible) { 
+        if (!isProtected) { 
             base.ApplyDamage(dmg);
-            lastHit = Time.time;
+            StartCoroutine(GetProtected(0.2f));
         }
     }
 
