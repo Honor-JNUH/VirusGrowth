@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour {
         if (garo != 0 || sero != 0)
             dir = new Vector2(garo, sero);
 
-        if (dir.magnitude > 0.3)
+        if (dir.magnitude > 0.1)
             behaviour.KeepMoving();
         else
             behaviour.StopMoving();
