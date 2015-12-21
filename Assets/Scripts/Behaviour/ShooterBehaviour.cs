@@ -4,7 +4,7 @@ using System.Collections;
 public abstract class ShooterBehaviour : MonoBehaviour {
 
     public GameObject bullet;
-    public float fireSpeed { get; protected set; }
+    public float fireSpeed;
 
     float lastFired;
 
