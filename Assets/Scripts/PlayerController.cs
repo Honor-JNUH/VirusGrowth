@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    Vector3 dir;
+    Vector2 dir;
     public PlayerBehaviour behaviour;
 
     void Start () {
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
         else
             behaviour.StopMoving();
 
-        behaviour.SendMessage("Move",dir);
+        behaviour.SendMessage("Move", dir);
 
         //shooting
 

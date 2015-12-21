@@ -15,14 +15,16 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
     {
         Vector2 playerPos = player.transform.position;
         Vector2 selfPos = transform.position;
-        
+
+        Follow(playerPos);
+        /*
         if (Vector2.Distance(playerPos, selfPos) > 2) { 
             isMoving = true;
             Follow(playerPos);
         } else { 
             isMoving = true;
             LookAt(playerPos);
-        }
+        }*/
     }
 
     protected override void Die() 

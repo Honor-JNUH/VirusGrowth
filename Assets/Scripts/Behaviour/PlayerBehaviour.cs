@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBehaviour : EntityBehaviour {
 
-    float protectDuration = 1;
+    float protectDuration = 0.5f;
     bool isProtected = false;
 
 
@@ -42,7 +42,7 @@ public class PlayerBehaviour : EntityBehaviour {
     {
         if (!isProtected) { 
             base.ApplyDamage(dmg);
-            StartCoroutine(GetProtected(0.2f));
+            StartCoroutine(GetProtected(0.1f));
         }
     }
 

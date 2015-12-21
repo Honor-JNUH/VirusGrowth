@@ -22,7 +22,7 @@ public class PlayState : MonoBehaviour
 
     void Update() {
         hpText.text = player.health.ToString();
-        scoreText.text = GM.score.ToString();
+        //scoreText.text = GM.score.ToString();
     }
 
     void Start() {
