@@ -4,24 +4,16 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 
-public class EndState : MonoBehaviour
+public class EndState : SceneState
 {
     public Button NextButton;
     public Text ScoreMessage;
-
-    public void HandleOnStateChange() {
-    }
 
     public void GetReady()
     {
         GameManager.AdvanceLevel();
         GameManager.SetGameState(GameState.READY);
         SceneManager.LoadScene("ready");
-    }
-
-    void Awake()
-    {
-        GameManager.instance.OnStateChange += HandleOnStateChange;
     }
 
     void Start()

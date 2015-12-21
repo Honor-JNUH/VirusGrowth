@@ -6,10 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/level_1.unity
+    path: Assets/Scenes/Build/level_1.unity
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
+    path: Assets/Scenes/Build/Intro.unity
   - enabled: 1
-    path: Assets/Scenes/Ready.unity
-  - enabled: 1
-    path: Assets/Scenes/End.unity
+    path: Assets/Scenes/Build/Ready.unity
