@@ -28,6 +28,7 @@ public abstract class WeaponBehaviour : MonoBehaviour {
         GameObject o = collision.gameObject;
         if (o.tag == targetTag)
             Hit(o);
+            Debug.Log("fuck");
     }
 
     

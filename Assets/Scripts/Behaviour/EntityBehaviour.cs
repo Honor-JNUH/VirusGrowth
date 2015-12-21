@@ -10,9 +10,11 @@ public abstract class EntityBehaviour : MonoBehaviour {
     public float speed { get; protected set; }
     public float maxHealth { get; protected set; }
     public float health { get; protected set; }
-    
+
     protected bool isMoving = false;
     protected bool isDestroyable = true;
+
+    public Vector2 forward { get { return transform.TransformDirection(Vector2.right); } }
 
     void Awake () {
         maxSpeed = defaultSpeed;

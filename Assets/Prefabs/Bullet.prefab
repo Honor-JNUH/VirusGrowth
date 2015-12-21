@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Enemy
   defaultDamage: 5
-  defaultSpeed: 20
+  defaultSpeed: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -135,7 +135,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: defaultSpeed
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

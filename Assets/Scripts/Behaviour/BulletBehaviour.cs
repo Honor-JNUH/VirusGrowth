@@ -6,7 +6,7 @@ public class BulletBehaviour : WeaponBehaviour {
     public float defaultSpeed;
     public float speed { get; protected set; }
 
-    protected Vector2 dir;
+    public Vector2 forward { get { return transform.TransformDirection(Vector2.right); }  }
     protected Rigidbody2D body { get { return GetComponent<Rigidbody2D>(); } }
 
     void Start () {
@@ -19,14 +19,12 @@ public class BulletBehaviour : WeaponBehaviour {
 
     protected virtual void Move() 
     {
-        body.MovePosition(body.position + dir * speed * Time.deltaTime);
-        body.MoveRotation(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
+        body.MovePosition(body.position + forward * speed * Time.deltaTime);
     }
 
     protected virtual void Fire(Vector2 d)
     {
-        dir = d.normalized;
-        //body.AddForce(d * speed);
+        body.MoveRotation(Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg);
     }
 
 }
