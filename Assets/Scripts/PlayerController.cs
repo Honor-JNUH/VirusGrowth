@@ -26,10 +26,8 @@ public class PlayerController : MonoBehaviour {
         behaviour.SendMessage("Move", dir);
 
         //shooting
-        if (Input.GetKey("z")) {
-            behaviour.shooter.SendMessage("Shoot");
-            //Debug.Log();
-        }
+        if (Input.GetKey("z"))
+            behaviour.shooter.GetComponent<ShooterBehaviour>().Shoot();
 	}
 
 }
