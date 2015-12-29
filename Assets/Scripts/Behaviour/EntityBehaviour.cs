@@ -6,7 +6,6 @@ public abstract class EntityBehaviour : PhysicalBehaviour {
     public float defaultSpeed;
     public float defaultHealth;
 
-
     public float maxHealth { get; protected set; }
     public float health { get; protected set; }
 
@@ -20,7 +19,7 @@ public abstract class EntityBehaviour : PhysicalBehaviour {
         health = maxHealth;
 	}
 
-    protected virtual void ApplyDamage(float dmg) {
+    public virtual void ApplyDamage(float dmg) {
         health -= dmg;
         Debug.Log("Ouch!! got " +dmg+ " dmg");
         if (health < 0) Die();

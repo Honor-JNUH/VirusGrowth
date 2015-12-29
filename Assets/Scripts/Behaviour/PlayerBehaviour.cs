@@ -35,7 +35,7 @@ public class PlayerBehaviour : EntityBehaviour {
     }
 
 
-    protected override void ApplyDamage(float dmg) 
+    public override void ApplyDamage(float dmg) 
     {
         if (!isProtected) { 
             base.ApplyDamage(dmg);

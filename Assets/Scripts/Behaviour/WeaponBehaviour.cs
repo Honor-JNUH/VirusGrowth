@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public abstract class WeaponBehaviour : MonoBehaviour {
+public abstract class WeaponBehaviour : PhysicalBehaviour {
 
     public string targetTag;
     public float defaultDamage;
@@ -16,6 +16,6 @@ public abstract class WeaponBehaviour : MonoBehaviour {
 
     protected virtual void Hit(GameObject o)
     {
-        o.SendMessage("ApplyDamage", damage);
+        o.GetComponent<EntityBehaviour>().ApplyDamage(damage);
     }
 }
