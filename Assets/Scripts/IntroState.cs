@@ -2,10 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class IntroState : MonoBehaviour {
-
-    public void HandleOnStateChange() {
-    }
+public class IntroState : SceneState {
 
     public void StartGame() {
         GameManager.ResetRun();
@@ -20,7 +17,7 @@ public class IntroState : MonoBehaviour {
     }
 
     void Start() {
-        GameManager.instance.OnStateChange += HandleOnStateChange;
+        GM.OnStateChange += HandleOnStateChange;
     }
 
     public void OnGUI() {

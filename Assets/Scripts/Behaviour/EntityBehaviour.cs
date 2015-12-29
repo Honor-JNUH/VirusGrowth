@@ -1,21 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class EntityBehaviour : MonoBehaviour {
+public abstract class EntityBehaviour : PhysicalBehaviour {
 
     public float defaultSpeed;
     public float defaultHealth;
 
-    public float maxSpeed { get; protected set; }
-    public float speed { get; protected set; }
+
     public float maxHealth { get; protected set; }
     public float health { get; protected set; }
 
     protected bool isMoving = false;
     protected bool isDestroyable = true;
 
-    public Vector2 forward { get { return transform.TransformDirection(Vector2.right); } }
-    public Rigidbody2D body { get { return GetComponent<Rigidbody2D>(); } }
 
     void Awake () {
         maxSpeed = defaultSpeed;
@@ -52,12 +49,6 @@ public abstract class EntityBehaviour : MonoBehaviour {
         
     }
 
-    protected void LookAt(Vector2 target)
-    {
-        Vector2 dir = target - (Vector2) transform.position;
-        body.MoveRotation(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
-    }
-
     protected void Accelerate()
     {
         speed = Mathf.Lerp(speed, maxSpeed, Time.time);
@@ -67,5 +58,4 @@ public abstract class EntityBehaviour : MonoBehaviour {
     {
         speed = Mathf.Lerp(speed, 0, Time.time);
     }
-
 }

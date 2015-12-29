@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 
         //shooting
         if (Input.GetKey("z")) {
-            behaviour.shooter.SendMessage("Shoot", (Vector2) behaviour.forward);
+            behaviour.shooter.SendMessage("Shoot");
             //Debug.Log();
         }
 	}
