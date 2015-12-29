@@ -20,10 +20,8 @@ public class PlayerBehaviour : EntityBehaviour {
     {
         Renderer renderer = GetComponent<Renderer>();
         float timer = protectDuration;
-
+  
         isProtected = true;
-
-        Debug.Log("Shield activated");
 
         while (timer > 0f) {
             timer -= Time.deltaTime;
@@ -34,8 +32,6 @@ public class PlayerBehaviour : EntityBehaviour {
        
         renderer.enabled = true;
         isProtected = false;
-
-        Debug.Log("Shield deactivated");
     }
 
 

@@ -12,7 +12,7 @@ public class SceneState : MonoBehaviour
     
     void Awake()
     {
-        GameManager.instance.OnStateChange += HandleOnStateChange;
+        GM.OnStateChange += HandleOnStateChange;
     }
 
 }

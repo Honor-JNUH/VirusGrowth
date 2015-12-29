@@ -15,6 +15,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
     protected bool isDestroyable = true;
 
     public Vector2 forward { get { return transform.TransformDirection(Vector2.right); } }
+    public Rigidbody2D body { get { return GetComponent<Rigidbody2D>(); } }
 
     void Awake () {
         maxSpeed = defaultSpeed;
@@ -43,8 +44,6 @@ public abstract class EntityBehaviour : MonoBehaviour {
         else if (!isMoving && speed > 0)
             Deccelerate();
 
-        Rigidbody2D body = GetComponent<Rigidbody2D>();
-
         dir = dir.normalized;
         //transform.Translate(transform.InverseTransformDirection(dir) * speed * Time.deltaTime);
         //Quaternion.FromToRotation(Vector2.right, dir)
@@ -56,7 +55,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
     protected void LookAt(Vector2 target)
     {
         Vector2 dir = target - (Vector2) transform.position;
-        GetComponent<Rigidbody2D>().MoveRotation(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
+        body.MoveRotation(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
     }
 
     protected void Accelerate()
