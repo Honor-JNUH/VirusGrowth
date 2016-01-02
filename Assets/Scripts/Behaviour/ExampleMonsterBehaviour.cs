@@ -12,7 +12,7 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
         isMoving = true;
     }
 
-	void Update () 
+	void FixedUpdate () 
     {
         Vector2 playerPos = player.transform.position;
         Vector2 selfPos = transform.position;
@@ -35,7 +35,8 @@ public class ExampleMonsterBehaviour : EntityBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "Player")
-            collision.gameObject.SendMessage("ApplyDamage", contactDamage);
+        GameObject o = collision.gameObject;
+        if (o.tag == "Player")
+            o.GetComponent<EntityBehaviour>().ApplyDamage(contactDamage);
     }
 }

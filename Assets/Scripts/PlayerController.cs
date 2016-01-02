@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
         dir = new Vector2(0, 0);
     }
 
-    void Update () {
+    void FixedUpdate () {
         //keyboard input movement
         float sero = Input.GetAxis ("Vertical");
 		float garo = Input.GetAxis ("Horizontal");

@@ -10,7 +10,7 @@ public class BulletBehaviour : WeaponBehaviour {
         speed = defaultSpeed;
     }
 
-    void Update() {
+    void FixedUpdate() {
         Move();
     }
 
