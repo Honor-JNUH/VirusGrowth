@@ -3,7 +3,6 @@ using System.Collections;
 
 public abstract class EntityBehaviour : PhysicalBehaviour {
 
-    public float defaultSpeed;
     public float defaultHealth;
 
     public float maxHealth { get; protected set; }
