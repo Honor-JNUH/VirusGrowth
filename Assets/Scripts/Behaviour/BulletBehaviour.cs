@@ -3,8 +3,6 @@ using System.Collections;
 
 public class BulletBehaviour : WeaponBehaviour {
 
-    public float defaultSpeed;
-
     void Awake () {
         damage = defaultDamage;
         speed = defaultSpeed;
