@@ -22,7 +22,7 @@ public abstract class EntityBehaviour : PhysicalBehaviour {
     public virtual void ApplyDamage(float dmg) {
         health -= dmg;
         Debug.Log("Ouch!! got " +dmg+ " dmg");
-        if (health < 0) Die();
+        if (health <= 0) Die();
     }
 
     protected abstract void Die();
