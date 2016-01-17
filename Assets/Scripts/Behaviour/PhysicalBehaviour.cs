@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PhysicalBehaviour : MonoBehaviour {
 
+    public float defaultSpeed;
+
     public float maxSpeed { get; protected set; }
     public float speed { get; protected set; }
 
